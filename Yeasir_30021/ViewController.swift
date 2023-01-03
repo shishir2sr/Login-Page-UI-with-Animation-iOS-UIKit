@@ -1,19 +1,196 @@
-//
-//  ViewController.swift
-//  Yeasir_30021
-//
-//  Created by bjit on 3/1/23.
-//
 
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var snowfallingImage: UIImageView!
+    @IBOutlet weak var snowFallingImage2: UIImageView!
+    @IBOutlet weak var snowFallingImage2CenterY: NSLayoutConstraint!
+    @IBOutlet weak var snowFallImageContraintX: NSLayoutConstraint!
+    @IBOutlet weak var snowFallImageConstraintY: NSLayoutConstraint!
+    @IBOutlet weak var gearImage: UIImageView!
+    @IBOutlet weak var loginView: UIView!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        uiChange()
+        
+    }
+    
+    
+    
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        animateLoginButton(sender)
+        validateEmailandPass()
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        imageCenterMove()
+        
+    }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateSnowFall()
+        
     }
 
 
 }
+
+
+
+
+// MARK: Animation functions
+extension ViewController{
+    func imageCenterMove(){
+        
+        self.snowfallingImage.alpha = 0.8
+        self.snowFallingImage2.alpha = 0
+        
+        self.snowfallingImage.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
+        
+//        self.snowFallingImage2.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
+        snowFallingImage2CenterY.constant -= view.bounds.width
+        
+        loginView.center.x -= self.view.bounds.width
+        
+        
+        
+    }
+    
+    
+    func animateSnowFall(){
+        UIView.animate(withDuration: 5 , delay: 0.2 , options: [.repeat, .curveEaseOut], animations: { [weak self] in
+            guard let self = self else{return}
+            self.snowfallingImage.alpha = 0.0
+            
+            self.snowfallingImage.center = CGPoint(x: self.view.bounds.width , y:  self.view.bounds.height )
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+//        UIView.animate(withDuration: 3, delay: 0.0, options: [.repeat], animations: {[weak self] in
+//                    guard let self = self else{return}
+//                    self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/2))
+//                }, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
+                    self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/8))
+                }
+        
+        UIView.animate(withDuration: 8, delay: 0, animations: {[weak self] in
+            guard let self = self else{return}
+            self.snowFallingImage2.alpha = 1
+            self.snowFallingImage2CenterY.constant = 0
+        })
+        UIView.animate(withDuration: 1, delay: 0.0, options: [.transitionCurlDown, .curveEaseOut], animations: {[self] in
+            self.loginView.center.x = 0
+            
+        }, completion: nil)
+
+        
+       
+    }
+}
+
+
+//MARK: Validation
+extension ViewController{
+    func validateEmailandPass(){
+            let email = emailTextField.text!
+            let password = passwordTextField.text!
+        
+        if isValidEmail(email: email) {
+            print("Email is valid")
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
+                self.emailTextField.layer.borderColor = UIColor.darkGray.cgColor
+            }, completion: nil)
+            
+            
+            
+        } else {
+            print("Email is invalid")
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut,], animations: { [self] in
+                self.emailTextField.layer.borderColor = UIColor.red.cgColor
+            }, completion: nil)
+        }
+
+
+        if isValidPassword(password: password) {
+            print("Password is valid")
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
+                self.passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
+            }, completion: nil)
+            }
+        else {
+            print("Password is invalid")
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
+                self.passwordTextField.layer.borderColor = UIColor.red.cgColor
+            }, completion: nil)
+        }
+    }
+     
+    func isValidEmail(email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+
+    func isValidPassword(password: String) -> Bool {
+        // Check if password is at least 8 characters long
+        if password.count < 8 {
+            return false
+        }
+        // Check if password contains at least one letter and one number
+        let range = NSRange(location: 0, length: password.utf16.count)
+        let regex = try! NSRegularExpression(pattern: ".*[A-Za-z].*[0-9]|.*[0-9].*[A-Za-z]")
+        if regex.firstMatch(in: password, options: [], range: range) != nil {
+            return true
+        }
+        return false
+    }
+    
+    
+}
+
+
+// MARK: UI
+extension ViewController{
+    fileprivate func uiChange() {
+        loginView.layer.cornerRadius = 8
+        emailTextField.layer.borderWidth = 1
+        emailTextField.layer.borderColor = UIColor.darkGray.cgColor
+        emailTextField.layer.cornerRadius = 5
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
+        
+        passwordTextField.layer.borderWidth = 1
+        passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
+        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        
+        
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.darkGray.cgColor
+        loginButton.layer.cornerRadius = 5
+    }
+    
+    
+    fileprivate func animateLoginButton(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: [.autoreverse, .curveEaseInOut], animations: {
+            
+            sender.backgroundColor = .gray
+            
+        }, completion: { [self] _ in
+            self.loginButton.backgroundColor = .white
+            
+        })
+    }
+}
+
 

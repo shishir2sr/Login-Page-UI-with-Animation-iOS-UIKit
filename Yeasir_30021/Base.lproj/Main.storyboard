@@ -1,24 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Yeasir_30021" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beautiful_house" translatesAutoresizingMaskIntoConstraints="NO" id="vmH-bg-rXh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snowfalling" translatesAutoresizingMaskIntoConstraints="NO" id="T62-Kn-cAe">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snowfalling" translatesAutoresizingMaskIntoConstraints="NO" id="sGJ-wF-0Jv">
+                                <rect key="frame" x="103.5" y="224" width="207" height="448"/>
+                            </imageView>
+                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLf-lF-AoI">
+                                <rect key="frame" x="20" y="224" width="374" height="448"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Art-Ug-VA6">
+                                        <rect key="frame" x="20" y="20" width="334" height="44"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Welcome">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.40200836489898994" green="0.40200836489898994" blue="0.40200836489898994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="36" name="Verdana-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="c0N-oQ-rLf">
+                                        <rect key="frame" x="162" y="74" width="50" height="50.5"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="HKf-Kr-VHg"/>
+                                            <constraint firstAttribute="height" constant="50" id="UU5-8V-DAu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" toolTip="tt" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NIo-M6-Lrg">
+                                        <rect key="frame" x="20" y="174" width="334" height="34"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nYf-va-BPq">
+                                        <rect key="frame" x="20" y="228" width="334" height="34"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEt-Hs-km5">
+                                        <rect key="frame" x="20" y="292" width="334" height="42.5"/>
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Login">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" size="24" name="HelveticaNeue-CondensedBold"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pkj-ei-0aW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="IEt-Hs-km5" firstAttribute="centerX" secondItem="MLf-lF-AoI" secondAttribute="centerX" id="2eR-0t-ufl"/>
+                                    <constraint firstItem="NIo-M6-Lrg" firstAttribute="centerX" secondItem="MLf-lF-AoI" secondAttribute="centerX" id="470-RH-8W7"/>
+                                    <constraint firstItem="c0N-oQ-rLf" firstAttribute="top" secondItem="Art-Ug-VA6" secondAttribute="bottom" constant="10" id="5gB-Cg-FsU"/>
+                                    <constraint firstItem="NIo-M6-Lrg" firstAttribute="leading" secondItem="MLf-lF-AoI" secondAttribute="leading" constant="20" id="Fms-M1-B3t"/>
+                                    <constraint firstItem="IEt-Hs-km5" firstAttribute="top" secondItem="nYf-va-BPq" secondAttribute="bottom" constant="30" id="I40-nQ-v5t"/>
+                                    <constraint firstItem="nYf-va-BPq" firstAttribute="leading" secondItem="MLf-lF-AoI" secondAttribute="leading" constant="20" id="JFM-wx-q5V"/>
+                                    <constraint firstItem="NIo-M6-Lrg" firstAttribute="top" secondItem="c0N-oQ-rLf" secondAttribute="bottom" constant="50" id="JrQ-Sa-3YK"/>
+                                    <constraint firstItem="Art-Ug-VA6" firstAttribute="top" secondItem="MLf-lF-AoI" secondAttribute="top" constant="20" id="LWT-yy-rTU"/>
+                                    <constraint firstItem="nYf-va-BPq" firstAttribute="top" secondItem="NIo-M6-Lrg" secondAttribute="bottom" constant="20" id="Lpr-mp-hB4"/>
+                                    <constraint firstItem="c0N-oQ-rLf" firstAttribute="centerX" secondItem="MLf-lF-AoI" secondAttribute="centerX" id="PDW-fR-fjO"/>
+                                    <constraint firstItem="nYf-va-BPq" firstAttribute="centerX" secondItem="MLf-lF-AoI" secondAttribute="centerX" id="Y86-jz-RCB"/>
+                                    <constraint firstItem="Art-Ug-VA6" firstAttribute="centerX" secondItem="MLf-lF-AoI" secondAttribute="centerX" id="ezO-3t-svk"/>
+                                    <constraint firstItem="Art-Ug-VA6" firstAttribute="leading" secondItem="MLf-lF-AoI" secondAttribute="leading" constant="20" id="p7P-ds-bEA"/>
+                                    <constraint firstItem="IEt-Hs-km5" firstAttribute="leading" secondItem="MLf-lF-AoI" secondAttribute="leading" constant="20" id="vCp-d4-9bv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="T62-Kn-cAe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6KS-sc-e56"/>
+                            <constraint firstItem="T62-Kn-cAe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7hy-OZ-gT4"/>
+                            <constraint firstItem="T62-Kn-cAe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Aag-sM-9ZG"/>
+                            <constraint firstItem="sGJ-wF-0Jv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FU7-Pb-iWd"/>
+                            <constraint firstItem="sGJ-wF-0Jv" firstAttribute="height" secondItem="T62-Kn-cAe" secondAttribute="height" multiplier="0.5" id="Jhq-Ti-1P8"/>
+                            <constraint firstItem="vmH-bg-rXh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Kpr-Gg-vzn"/>
+                            <constraint firstItem="MLf-lF-AoI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="OPl-U7-RgW"/>
+                            <constraint firstAttribute="bottom" secondItem="T62-Kn-cAe" secondAttribute="bottom" id="RHc-Cw-Iv3"/>
+                            <constraint firstItem="MLf-lF-AoI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rwa-Rl-h1p"/>
+                            <constraint firstItem="sGJ-wF-0Jv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WDA-qB-rR2"/>
+                            <constraint firstItem="T62-Kn-cAe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XLu-Qo-J4J"/>
+                            <constraint firstItem="vmH-bg-rXh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cZo-Gg-eHX"/>
+                            <constraint firstItem="T62-Kn-cAe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fKa-42-rp4"/>
+                            <constraint firstItem="MLf-lF-AoI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="i6x-9J-WXk"/>
+                            <constraint firstAttribute="bottom" secondItem="vmH-bg-rXh" secondAttribute="bottom" id="iv4-gC-93l"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MLf-lF-AoI" secondAttribute="trailing" constant="20" id="mgQ-bS-mfB"/>
+                            <constraint firstItem="sGJ-wF-0Jv" firstAttribute="width" secondItem="T62-Kn-cAe" secondAttribute="width" multiplier="0.5" id="p3Q-68-A2q"/>
+                            <constraint firstItem="vmH-bg-rXh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="z2I-FZ-FCV"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="NIo-M6-Lrg" id="5Bf-3Y-95a"/>
+                        <outlet property="gearImage" destination="c0N-oQ-rLf" id="D8x-BW-HDS"/>
+                        <outlet property="loginButton" destination="IEt-Hs-km5" id="jLx-tt-GPG"/>
+                        <outlet property="loginView" destination="MLf-lF-AoI" id="oUZ-uP-WS8"/>
+                        <outlet property="passwordTextField" destination="nYf-va-BPq" id="uUN-JE-l9a"/>
+                        <outlet property="snowFallImageConstraintY" destination="6KS-sc-e56" id="ElO-7F-mZ3"/>
+                        <outlet property="snowFallImageContraintX" destination="Aag-sM-9ZG" id="FDt-dh-tn4"/>
+                        <outlet property="snowFallingImage2" destination="sGJ-wF-0Jv" id="SQF-5O-1LC"/>
+                        <outlet property="snowFallingImage2CenterY" destination="WDA-qB-rR2" id="BLR-Ri-5vL"/>
+                        <outlet property="snowfallingImage" destination="T62-Kn-cAe" id="x0d-lQ-jhX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="95.758928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="beautiful_house" width="1600" height="1280"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="snowfalling" width="1200" height="1200"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
