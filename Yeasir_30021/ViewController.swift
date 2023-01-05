@@ -115,8 +115,20 @@ extension ViewController{
             
         } else {
             print("Email is invalid")
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut,], animations: { [self] in
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut, .autoreverse], animations: { [self] in
                 self.emailTextField.layer.borderColor = UIColor.red.cgColor
+                let shake = CABasicAnimation(keyPath: "position")
+                                shake.duration = 0.1
+                                shake.repeatCount = 2
+                                shake.autoreverses = true
+                let fromPoint = CGPoint(x: self.emailTextField.center.x - 10, y: self.emailTextField.center.y)
+                                let fromValue = NSValue(cgPoint: fromPoint)
+                                let toPoint = CGPoint(x: self.emailTextField.center.x + 10, y: self.emailTextField.center.y)
+                                let toValue = NSValue(cgPoint: toPoint)
+                                shake.fromValue = fromValue
+                                shake.toValue = toValue
+                                self.emailTextField.layer.add(shake, forKey: "position")
+                
             }, completion: nil)
         }
 
