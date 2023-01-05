@@ -1,5 +1,5 @@
 # Login-Page-UI-with-Animation-iOS-UIKit
 A simple login UI using iOS core animation and validation logic
 
+![](https://github.com/shishir2sr/Login-Page-UI-with-Animation-iOS-UIKit/blob/main/Studio_Project.gif)
 
-![]([https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://media.giphy.com/media/vqzUPxCquX7ZQi5ORz/giphy.gif))
