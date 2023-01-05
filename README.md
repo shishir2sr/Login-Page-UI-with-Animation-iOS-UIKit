@@ -2,4 +2,4 @@
 A simple login UI using iOS core animation and validation logic
 
 
-![Alt Text]([https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://media.giphy.com/media/vqzUPxCquX7ZQi5ORz/giphy.gif))
+![]([https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif](https://media.giphy.com/media/vqzUPxCquX7ZQi5ORz/giphy.gif))
