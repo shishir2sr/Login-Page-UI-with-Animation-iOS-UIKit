@@ -37,6 +37,8 @@ class SignUpViewController: UIViewController {
 
 // MARK: Validation Delegate
 extension SignUpViewController: AnimationDelegateForVC{
+    
+    
     fileprivate func shakeAnimation(textField: UITextField) {
         textField.layer.borderColor = UIColor.red.cgColor
         let shake = CABasicAnimation(keyPath: "position")

@@ -30,8 +30,9 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
-        userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
         
+        userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
+        print("Authenticated!")
         
     }
     
@@ -39,7 +40,6 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         imageCenterMove()
-        
     }
     
     
@@ -140,6 +140,10 @@ extension ViewController: AnimationDelegateForVC{
     
     func changePassColor(){
         self.passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
+    }
+    
+    @objc func gotoHomeScreen() {
+        performSegue(withIdentifier: "s1", sender: nil)
     }
     
 }

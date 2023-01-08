@@ -1,12 +1,15 @@
 import Foundation
 import UIKit
 
-protocol AnimationDelegateForVC{
+@objc protocol AnimationDelegateForVC{
     func shakeEmail()
     func shakePass()
     func changeEmailColor()
     func changePassColor()
+    @objc optional func gotoHomeScreen()
 }
+
+
 
 struct UserValidation{
     
@@ -22,7 +25,7 @@ struct UserValidation{
 
         isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
         
-        keychainManager.readDataFromKeyChain(account: email, providedPass: pass) ? delegate?.changePassColor() : delegate?.shakePass()
+        keychainManager.readDataFromKeyChain(account: email, providedPass: pass) ? delegate?.gotoHomeScreen!() : delegate?.shakePass()
         
     }
     
