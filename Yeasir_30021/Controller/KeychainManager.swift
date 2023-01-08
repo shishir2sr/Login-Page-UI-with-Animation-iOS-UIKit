@@ -3,6 +3,7 @@ import Foundation
 
 struct KeychainManager{
     
+    // MARK: Write
     func writeToKeychain(email: String, password: String) {
         let service = "password"
        guard let data = try? JSONEncoder().encode(password) else {return}
@@ -18,7 +19,7 @@ struct KeychainManager{
        
     }
     
-    
+    // MARK: Read
     func readDataFromKeyChain(account: String, providedPass: String) -> Bool{
         var passwordValid:Bool?
         

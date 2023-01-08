@@ -13,17 +13,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    
     var lastLoginEmail:String?
     
     let keychainManager = KeychainManager()
     var userValidation = UserValidation()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uiChange()
         userValidation.delegate = self
         
-        lastLoginEmail = UserDefaults.standard.string(forKey: "lastLoginEmail")
+        lastLoginEmail = UserDefaultManager.read(key: "lastLoginEmail") as? String
+        
         emailTextField.text = lastLoginEmail ?? ""
     }
     
@@ -40,7 +43,7 @@ class ViewController: UIViewController {
         
         animateLoginButton(sender)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-        UserDefaults.standard.set(emailTextField.text, forKey: "lastLoginEmail")
+        UserDefaultManager.add(key: "lastLoginEmail", value: emailTextField.text!)
     }
     
     
