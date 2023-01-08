@@ -64,7 +64,7 @@ extension ViewController{
         //        self.snowFallingImage2.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
         snowFallingImage2CenterY.constant -= view.bounds.width
         
-        loginView.center.x -= self.view.bounds.width
+//        loginView.center.x -= self.view.bounds.width
         
     }
     
@@ -91,10 +91,10 @@ extension ViewController{
             self.snowFallingImage2.alpha = 1
             self.snowFallingImage2CenterY.constant = 0
         })
-        UIView.animate(withDuration: 1, delay: 0.0, options: [.transitionCurlDown, .curveEaseOut], animations: {[self] in
-            self.loginView.center.x = 0
-            
-        }, completion: nil)
+//        UIView.animate(withDuration: 1, delay: 0.0, options: [.transitionCurlDown, .curveEaseOut], animations: {[self] in
+//            self.loginView.center.x = 0
+//
+//        }, completion: nil)
         
         
         
