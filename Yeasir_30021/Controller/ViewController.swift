@@ -31,18 +31,16 @@ class ViewController: UIViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "s1"{
                 let vc = segue.destination as! HomeViewController
-                vc.title = "Welcom, \(lastLoginEmail!)"
+                vc.title = "Welcom, \(emailTextField.text!)"
             }
         }
     
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        
         animateLoginButton(sender)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-        
-        
         UserDefaults.standard.set(emailTextField.text, forKey: "lastLoginEmail")
-        
-    
     }
     
     

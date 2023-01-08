@@ -29,6 +29,17 @@ struct UserValidation{
         
     }
     
+    func validateEmailandPass2(email: String, pass: String){
+        
+        isValidEmail(email: email) ?
+        delegate?.changeEmailColor() : delegate?.shakeEmail()
+
+        isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
+        
+        keychainManager.writeToKeychain(email: email , password: pass)
+        
+    }
+    
     
     func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
