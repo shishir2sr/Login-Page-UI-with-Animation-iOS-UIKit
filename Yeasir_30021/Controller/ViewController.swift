@@ -31,6 +31,8 @@ class ViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
+        
+        
     }
     
     

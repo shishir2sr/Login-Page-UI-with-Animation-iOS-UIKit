@@ -42,20 +42,21 @@ struct KeychainManager{
                 
                 if let data = result[kSecValueData] as? Data {
                     let password = try? JSONDecoder().decode(String.self, from: data)
+                    print(password!)
                     if password == providedPass{
+                        print("password match!!")
                         passwordValid = true
                     }
                     else{
                         passwordValid = false
+                        print("password not match!!")
                     }
-                    
                 }
             }
         } else {
 //            print(status)
             passwordValid = false
         }
-        
         
         return passwordValid!
     }
