@@ -3,30 +3,23 @@ import UIKit
 
 protocol AnimationDelegateForVC{
     func shakeEmail()
-    
     func shakePass()
-    
     func changeEmailColor()
-    
     func changePassColor()
 }
 
 struct UserValidation{
-    let email: String
-    let password: String
+    
     var delegate: AnimationDelegateForVC?
     
-    init(email: String, password: String) {
-        self.email = email
-        self.password = password
-    }
     
-    func validateEmailandPass(){
+    
+    func validateEmailandPass(email: String, pass: String){
         
-        isValidEmail(email: self.email) ?
-        delegate?.changePassColor() : delegate?.shakeEmail()
+        isValidEmail(email: email) ?
+        delegate?.changeEmailColor() : delegate?.shakeEmail()
         
-        isValidPassword(password: password) ? delegate?.changePassColor() : delegate?.shakePass()
+        isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
     }
     
     

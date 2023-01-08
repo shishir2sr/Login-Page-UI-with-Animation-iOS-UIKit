@@ -14,9 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     
+    var userValidation = UserValidation()
+    
     
     override func viewDidLoad() {
-        var userValidation = UserValidation(email: self.emailTextField.text! , password: self.passwordTextField.text!)
         
         super.viewDidLoad()
         uiChange()
@@ -27,7 +28,8 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
-        validateEmailandPass()
+        
+        userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
     }
     
     
@@ -120,7 +122,7 @@ extension ViewController: AnimationDelegateForVC{
     }
     
     func shakeEmail(){
-        shakeAnimation(textField: passwordTextField)
+        shakeAnimation(textField: emailTextField)
     }
     
     func shakePass(){
