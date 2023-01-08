@@ -32,9 +32,11 @@ class ViewController: UIViewController {
     
     //prepare for seque
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           
             if segue.identifier == "s1"{
                 let vc = segue.destination as! HomeViewController
-                vc.title = "Welcom, \(emailTextField.text!)"
+                vc.title = "\(lastLoginEmail!)"
+                
             }
         }
     
