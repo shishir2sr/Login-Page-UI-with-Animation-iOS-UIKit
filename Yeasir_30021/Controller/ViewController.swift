@@ -35,7 +35,7 @@ class ViewController: UIViewController {
            
             if segue.identifier == "s1"{
                 let vc = segue.destination as! HomeViewController
-                vc.title = "\(lastLoginEmail!)"
+                vc.authenticatedUser = (UserDefaultManager.read(key: "lastLoginEmail") as? String)!
                 
             }
         }
