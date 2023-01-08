@@ -237,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="2452.1739130434785" y="116.51785714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="cMG-hi-5tY">
             <objects>
-                <viewController id="zbB-St-BlX" sceneMemberID="viewController">
+                <viewController id="zbB-St-BlX" customClass="HomeViewController" customModule="Yeasir_30021" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mF0-oZ-TY9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

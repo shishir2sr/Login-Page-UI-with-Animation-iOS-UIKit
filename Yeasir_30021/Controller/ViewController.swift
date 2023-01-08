@@ -13,27 +13,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    var lastLoginEmail:String?
+    
     let keychainManager = KeychainManager()
-    
-    
     var userValidation = UserValidation()
     
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         uiChange()
         userValidation.delegate = self
+        
+        lastLoginEmail = UserDefaults.standard.string(forKey: "lastLoginEmail")
+        emailTextField.text = lastLoginEmail ?? ""
     }
     
-    
+    //prepare for seque
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "s1"{
+                let vc = segue.destination as! HomeViewController
+                vc.title = "Welcom, \(lastLoginEmail!)"
+            }
+        }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
-        
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-        print("Authenticated!")
         
+        
+        UserDefaults.standard.set(emailTextField.text, forKey: "lastLoginEmail")
+        
+    
     }
     
     
