@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    let keychainManager = KeychainManager()
+    
     
     var userValidation = UserValidation()
     
@@ -28,7 +30,6 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
-        
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
     }
     
@@ -123,10 +124,12 @@ extension ViewController: AnimationDelegateForVC{
     
     func shakeEmail(){
         shakeAnimation(textField: emailTextField)
+        return
     }
     
     func shakePass(){
         shakeAnimation(textField: passwordTextField)
+        return
     }
     
     func changeEmailColor(){

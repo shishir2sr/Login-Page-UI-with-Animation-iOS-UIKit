@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3847A380296A9060006999A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847A37F296A9060006999A1 /* SignUpViewController.swift */; };
+		3847A382296AAD9E006999A1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3847A381296AAD9E006999A1 /* KeychainManager.swift */; };
 		38A37436296A6A1000EB3D6C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A37435296A6A1000EB3D6C /* Validation.swift */; };
 		89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F62963C705009DDE86 /* AppDelegate.swift */; };
 		89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F82963C705009DDE86 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		3847A37F296A9060006999A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3847A381296AAD9E006999A1 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		38A37435296A6A1000EB3D6C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		89E6E3F32963C705009DDE86 /* Yeasir_30021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeasir_30021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E6E3F62963C705009DDE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,8 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				89E6E3FA2963C705009DDE86 /* ViewController.swift */,
-				38A37435296A6A1000EB3D6C /* Validation.swift */,
 				3847A37F296A9060006999A1 /* SignUpViewController.swift */,
+				38A37435296A6A1000EB3D6C /* Validation.swift */,
+				3847A381296AAD9E006999A1 /* KeychainManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6E3FB2963C705009DDE86 /* ViewController.swift in Sources */,
+				3847A382296AAD9E006999A1 /* KeychainManager.swift in Sources */,
 				89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */,
 				38A37436296A6A1000EB3D6C /* Validation.swift in Sources */,
 				89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */,

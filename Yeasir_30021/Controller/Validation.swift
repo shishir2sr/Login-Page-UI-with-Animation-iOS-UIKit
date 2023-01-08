@@ -11,6 +11,7 @@ protocol AnimationDelegateForVC{
 struct UserValidation{
     
     var delegate: AnimationDelegateForVC?
+    let keychainManager = KeychainManager()
     
     
     
@@ -18,8 +19,11 @@ struct UserValidation{
         
         isValidEmail(email: email) ?
         delegate?.changeEmailColor() : delegate?.shakeEmail()
-        
+
         isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
+        
+        keychainManager.readDataFromKeyChain(account: email, providedPass: pass) ? delegate?.changePassColor() : delegate?.shakePass()
+        
     }
     
     

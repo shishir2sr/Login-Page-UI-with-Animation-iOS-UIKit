@@ -8,26 +8,29 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signupButton: UIButton!
     
+    var keychainManager = KeychainManager()
     var userValidation = UserValidation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         uiUpdate()
-        
         userValidation.delegate = self
     
     }
-    
+
 
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
         
-    
+        keychainManager.writeToKeychain(email: self.emailTextField.text!, password: self.passwordTextField.text!)
+        
+        print("Signup success!")
+        
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        
     }
-    
-    
-    
 }
 
 
@@ -51,10 +54,12 @@ extension SignUpViewController: AnimationDelegateForVC{
     
     func shakeEmail(){
         shakeAnimation(textField: emailTextField)
+        return
     }
     
     func shakePass(){
         shakeAnimation(textField: passwordTextField)
+        return
     }
     
     func changeEmailColor(){
