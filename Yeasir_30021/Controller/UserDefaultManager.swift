@@ -33,7 +33,5 @@ struct UserDefaultManager{
     static func keyExists(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
     }
-
-
     
 }
