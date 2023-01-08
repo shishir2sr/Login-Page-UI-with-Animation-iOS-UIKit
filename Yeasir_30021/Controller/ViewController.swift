@@ -14,10 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     
     
+    
     override func viewDidLoad() {
+        var userValidation = UserValidation(email: self.emailTextField.text! , password: self.passwordTextField.text!)
+        
         super.viewDidLoad()
         uiChange()
-        
+        userValidation.delegate = self
     }
     
     
@@ -34,14 +37,14 @@ class ViewController: UIViewController {
         
     }
     
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateSnowFall()
         
     }
-
-
+    
+    
 }
 
 
@@ -56,12 +59,10 @@ extension ViewController{
         
         self.snowfallingImage.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
         
-//        self.snowFallingImage2.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
+        //        self.snowFallingImage2.center = CGPoint(x:  -(self.view.bounds.width), y:  +(self.view.bounds.height))
         snowFallingImage2CenterY.constant -= view.bounds.width
         
         loginView.center.x -= self.view.bounds.width
-        
-        
         
     }
     
@@ -75,13 +76,13 @@ extension ViewController{
             self.view.layoutIfNeeded()
         }, completion: nil)
         
-//        UIView.animate(withDuration: 3, delay: 0.0, options: [.repeat], animations: {[weak self] in
-//                    guard let self = self else{return}
-//                    self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/2))
-//                }, completion: nil)
+        //        UIView.animate(withDuration: 3, delay: 0.0, options: [.repeat], animations: {[weak self] in
+        //                    guard let self = self else{return}
+        //                    self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/2))
+        //                }, completion: nil)
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-                    self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/8))
-                }
+            self.gearImage.transform = self.gearImage.transform.rotated(by: CGFloat(Double.pi/8))
+        }
         
         UIView.animate(withDuration: 8, delay: 0, animations: {[weak self] in
             guard let self = self else{return}
@@ -92,83 +93,52 @@ extension ViewController{
             self.loginView.center.x = 0
             
         }, completion: nil)
-
         
-       
+        
+        
     }
 }
+
 
 
 //MARK: Validation
-extension ViewController{
-    func validateEmailandPass(){
-            let email = emailTextField.text!
-            let password = passwordTextField.text!
-        
-        if isValidEmail(email: email) {
-            print("Email is valid")
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
-                self.emailTextField.layer.borderColor = UIColor.darkGray.cgColor
-            }, completion: nil)
-            
-            
-            
-        } else {
-            print("Email is invalid")
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut, .autoreverse], animations: { [self] in
-                self.emailTextField.layer.borderColor = UIColor.red.cgColor
-                let shake = CABasicAnimation(keyPath: "position")
-                                shake.duration = 0.1
-                                shake.repeatCount = 2
-                                shake.autoreverses = true
-                let fromPoint = CGPoint(x: self.emailTextField.center.x - 10, y: self.emailTextField.center.y)
-                                let fromValue = NSValue(cgPoint: fromPoint)
-                                let toPoint = CGPoint(x: self.emailTextField.center.x + 10, y: self.emailTextField.center.y)
-                                let toValue = NSValue(cgPoint: toPoint)
-                                shake.fromValue = fromValue
-                                shake.toValue = toValue
-                                self.emailTextField.layer.add(shake, forKey: "position")
-                
-            }, completion: nil)
-        }
-
-
-        if isValidPassword(password: password) {
-            print("Password is valid")
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
-                self.passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
-            }, completion: nil)
-            }
-        else {
-            print("Password is invalid")
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseOut], animations: { [self] in
-                self.passwordTextField.layer.borderColor = UIColor.red.cgColor
-            }, completion: nil)
-        }
-    }
-     
-    func isValidEmail(email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-
-    func isValidPassword(password: String) -> Bool {
-        // Check if password is at least 8 characters long
-        if password.count < 8 {
-            return false
-        }
-        // Check if password contains at least one letter and one number
-        let range = NSRange(location: 0, length: password.utf16.count)
-        let regex = try! NSRegularExpression(pattern: ".*[A-Za-z].*[0-9]|.*[0-9].*[A-Za-z]")
-        if regex.firstMatch(in: password, options: [], range: range) != nil {
-            return true
-        }
-        return false
+extension ViewController: AnimationDelegateForVC{
+    
+    fileprivate func shakeAnimation(textField: UITextField) {
+        textField.layer.borderColor = UIColor.red.cgColor
+        let shake = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 2
+        shake.autoreverses = true
+        let fromPoint = CGPoint(x: textField.center.x - 10, y: textField.center.y)
+        let fromValue = NSValue(cgPoint: fromPoint)
+        let toPoint = CGPoint(x: textField.center.x + 10, y: textField.center.y)
+        let toValue = NSValue(cgPoint: toPoint)
+        shake.fromValue = fromValue
+        shake.toValue = toValue
+        textField.layer.add(shake, forKey: "position")
     }
     
+    func shakeEmail(){
+        shakeAnimation(textField: passwordTextField)
+    }
+    
+    func shakePass(){
+        shakeAnimation(textField: passwordTextField)
+    }
+    
+    func changeEmailColor(){
+        self.emailTextField.layer.borderColor = UIColor.darkGray.cgColor
+    }
+    
+    func changePassColor(){
+        self.passwordTextField.layer.borderColor = UIColor.darkGray.cgColor
+    }
     
 }
+
+
+
 
 
 // MARK: UI

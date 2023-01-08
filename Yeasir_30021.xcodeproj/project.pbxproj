@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38A37436296A6A1000EB3D6C /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A37435296A6A1000EB3D6C /* Validation.swift */; };
 		89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F62963C705009DDE86 /* AppDelegate.swift */; };
 		89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F82963C705009DDE86 /* SceneDelegate.swift */; };
 		89E6E3FB2963C705009DDE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3FA2963C705009DDE86 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38A37435296A6A1000EB3D6C /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		89E6E3F32963C705009DDE86 /* Yeasir_30021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeasir_30021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E6E3F62963C705009DDE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E6E3F82963C705009DDE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38A37431296A68AA00EB3D6C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		38A37433296A68D500EB3D6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89E6E3FC2963C705009DDE86 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		38A37434296A68E300EB3D6C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89E6E3FA2963C705009DDE86 /* ViewController.swift */,
+				38A37435296A6A1000EB3D6C /* Validation.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		89E6E3EA2963C705009DDE86 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +82,11 @@
 		89E6E3F52963C705009DDE86 /* Yeasir_30021 */ = {
 			isa = PBXGroup;
 			children = (
+				38A37431296A68AA00EB3D6C /* Model */,
+				38A37433296A68D500EB3D6C /* View */,
+				38A37434296A68E300EB3D6C /* Controller */,
 				89E6E3F62963C705009DDE86 /* AppDelegate.swift */,
 				89E6E3F82963C705009DDE86 /* SceneDelegate.swift */,
-				89E6E3FA2963C705009DDE86 /* ViewController.swift */,
-				89E6E3FC2963C705009DDE86 /* Main.storyboard */,
 				89E6E3FF2963C706009DDE86 /* Assets.xcassets */,
 				89E6E4012963C706009DDE86 /* LaunchScreen.storyboard */,
 				89E6E4042963C706009DDE86 /* Info.plist */,
@@ -140,6 +167,7 @@
 			files = (
 				89E6E3FB2963C705009DDE86 /* ViewController.swift in Sources */,
 				89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */,
+				38A37436296A6A1000EB3D6C /* Validation.swift in Sources */,
 				89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
