@@ -29,8 +29,12 @@ class ViewController: UIViewController {
         emailTextField.text = lastLoginEmail ?? ""
         
     let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
+        
        authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login or sign up")
+        
+        
     }
+    
     
     //prepare for seque
 //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
