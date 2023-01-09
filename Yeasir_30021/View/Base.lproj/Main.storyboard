@@ -243,26 +243,10 @@
                     <view key="view" contentMode="scaleToFill" id="mF0-oZ-TY9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKh-RL-lis">
-                                <rect key="frame" x="20" y="108" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="s9Z-Ol-O5R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kKh-RL-lis" firstAttribute="leading" secondItem="s9Z-Ol-O5R" secondAttribute="leading" constant="20" id="Gn3-kR-Bxl"/>
-                            <constraint firstItem="kKh-RL-lis" firstAttribute="top" secondItem="s9Z-Ol-O5R" secondAttribute="top" constant="20" id="awT-mI-jHV"/>
-                            <constraint firstItem="kKh-RL-lis" firstAttribute="centerX" secondItem="mF0-oZ-TY9" secondAttribute="centerX" id="bkO-wR-CWw"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Contacts" id="Wjb-gX-UYg"/>
-                    <connections>
-                        <outlet property="greetingLable" destination="kKh-RL-lis" id="9H0-8C-f9a"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Contacts" largeTitleDisplayMode="always" id="Wjb-gX-UYg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6Q-Qn-vrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
