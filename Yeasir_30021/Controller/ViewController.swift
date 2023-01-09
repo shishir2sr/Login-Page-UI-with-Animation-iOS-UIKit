@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         lastLoginEmail = UserDefaultManager.read(key: Constants.lastLoginKey) as? String
         
         emailTextField.text = lastLoginEmail ?? ""
+        
+       var authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
+       authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login")
     }
     
     //prepare for seque
@@ -46,6 +49,7 @@ class ViewController: UIViewController {
         animateLoginButton(sender)
         UserDefaultManager.add(key: Constants.lastLoginKey, value: emailTextField.text!)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
+        passwordTextField.text = ""
     }
     
     

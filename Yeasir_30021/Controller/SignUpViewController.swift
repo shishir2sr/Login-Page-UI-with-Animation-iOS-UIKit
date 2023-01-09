@@ -22,8 +22,6 @@ class SignUpViewController: UIViewController {
     @IBAction func signupButtonPressed(_ sender: UIButton) {
         animateLoginButton(sender)
         userValidation.validateEmailandPass2(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-        
-        
         emailTextField.text = ""
         passwordTextField.text = ""
         
