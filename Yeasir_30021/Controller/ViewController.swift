@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     let keychainManager = KeychainManager()
     var userValidation = UserValidation()
-   
+    var authStatus: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,15 @@ class ViewController: UIViewController {
         lastLoginEmail = UserDefaultManager.read(key: Constants.lastLoginKey) as? String
         emailTextField.text = lastLoginEmail ?? ""
         
-    let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
+        authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
         
-       authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login or sign up")
+        if let authStatus = authStatus{
+            authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login or sign up")
+        }else{
+            UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: false)
+        }
         
-        
+       
     }
     
     
@@ -191,6 +195,8 @@ extension ViewController{
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.darkGray.cgColor
         loginButton.layer.cornerRadius = 5
+        
+        self.tabBarController?.tabBar.alpha = 0.75
     }
     
     

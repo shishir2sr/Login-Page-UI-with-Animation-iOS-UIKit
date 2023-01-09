@@ -3,6 +3,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     var authenticatedUser: String = ""
+    
 
     @IBOutlet weak var greetingLable: UILabel!
     
@@ -10,7 +11,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: true)
-        print(UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool)
+        
+        
         let welcomePerson = UserDefaultManager.read(key: Constants.lastLoginKey)
         self.navigationItem.prompt = "Welcome, \(welcomePerson!)"
         
@@ -18,13 +20,12 @@ class HomeViewController: UIViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
         
-         let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
-        if authStatus{
+        let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
+        if authStatus!{
             self.tabBarController?.tabBar.alpha = 0
             self.tabBarController?.tabBar.isUserInteractionEnabled = false
         }
-            
-        
+
         
 //
     }
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
         self.tabBarController?.tabBar.isUserInteractionEnabled = true
         
         self.navigationController?.popViewController(animated: true)
+        
         print("Logged out: \( UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool)")
         
     }

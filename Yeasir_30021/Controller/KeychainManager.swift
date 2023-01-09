@@ -5,17 +5,22 @@ struct KeychainManager{
     
     // MARK: Write
     func writeToKeychain(email: String, password: String) {
-        let service = "password"
-       guard let data = try? JSONEncoder().encode(password) else {return}
+        if checkIfExistsKeychain(email: email) {
+            print("User already registered!")
+            updateKeychain(email: email, password: password)
+        }else{
+            let service = "password"
+           guard let data = try? JSONEncoder().encode(password) else {return}
+            
+            let query = [
+                kSecClass : kSecClassGenericPassword,
+                kSecAttrAccount: email,
+                kSecAttrService: service,
+                kSecValueData: data
+            ] as CFDictionary
         
-        let query = [
-            kSecClass : kSecClassGenericPassword,
-            kSecAttrAccount: email,
-            kSecAttrService: service,
-            kSecValueData: data
-        ] as CFDictionary
-    
-        SecItemAdd(query, nil)
+            SecItemAdd(query, nil)
+        }
        
     }
     
