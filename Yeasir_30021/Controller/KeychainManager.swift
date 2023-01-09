@@ -20,7 +20,30 @@ struct KeychainManager{
     }
     
     // MARK: Read
-    func readDataFromKeyChain(account: String, providedPass: String) -> Bool{
+    
+    func readDataFromKeyChain(account: String, providedPass: String) -> Bool {
+        let query = [
+            kSecClass : kSecClassGenericPassword,
+            kSecAttrAccount: account,
+            kSecAttrService: "password",
+            kSecReturnData: true,
+            kSecReturnAttributes: true
+            
+        ] as CFDictionary
+
+        var result: CFTypeRef?
+
+        let status = SecItemCopyMatching(query, &result)
+
+        guard status == errSecSuccess, let result = result as? [CFString : Any], let data = result[kSecValueData] as? Data, let password = try? JSONDecoder().decode(String.self, from: data) else {
+            return false
+        }
+
+        return password == providedPass
+    }
+
+    
+    /**func readDataFromKeyChain(account: String, providedPass: String) -> Bool{
         var passwordValid:Bool?
         
         let query = [
@@ -60,5 +83,5 @@ struct KeychainManager{
         }
         
         return passwordValid!
-    }
+    }*/
 }

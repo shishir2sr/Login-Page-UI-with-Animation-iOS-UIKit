@@ -4,7 +4,8 @@ struct UserDefaultManager{
 
     // MARK:  Add
     static func add(key: String, value: Any) {
-        UserDefaults.standard.set(value, forKey: key)
+            UserDefaults.standard.set(value, forKey: key)
+        
     }
 
     // MARK:  Read
@@ -19,6 +20,7 @@ struct UserDefaultManager{
 
     // MARK: Update
     static func update(key: String, value: Any) {
+        UserDefaults.standard.removeObject(forKey: key)
         UserDefaults.standard.set(value, forKey: key)
     }
 
