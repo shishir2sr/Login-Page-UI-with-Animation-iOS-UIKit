@@ -13,6 +13,7 @@
 		38BC7755296AC7AC00C7B376 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7754296AC7AC00C7B376 /* HomeViewController.swift */; };
 		38BC7757296ADA0B00C7B376 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7756296ADA0B00C7B376 /* UserDefaultManager.swift */; };
 		38BC7759296AE09900C7B376 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7758296AE09900C7B376 /* PlistManager.swift */; };
+		89BB0C43296BFD6E00F16177 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB0C42296BFD6E00F16177 /* Constants.swift */; };
 		89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F62963C705009DDE86 /* AppDelegate.swift */; };
 		89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F82963C705009DDE86 /* SceneDelegate.swift */; };
 		89E6E3FB2963C705009DDE86 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3FA2963C705009DDE86 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		38BC7754296AC7AC00C7B376 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		38BC7756296ADA0B00C7B376 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		38BC7758296AE09900C7B376 /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
+		89BB0C42296BFD6E00F16177 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89E6E3F32963C705009DDE86 /* Yeasir_30021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeasir_30021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E6E3F62963C705009DDE86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E6E3F82963C705009DDE86 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		89BB0C41296BFD5D00F16177 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				89BB0C42296BFD6E00F16177 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		89E6E3EA2963C705009DDE86 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		89E6E3F52963C705009DDE86 /* Yeasir_30021 */ = {
 			isa = PBXGroup;
 			children = (
+				89BB0C41296BFD5D00F16177 /* Constants */,
 				38A37431296A68AA00EB3D6C /* Model */,
 				38A37433296A68D500EB3D6C /* View */,
 				38A37434296A68E300EB3D6C /* Controller */,
@@ -185,6 +196,7 @@
 				38BC7757296ADA0B00C7B376 /* UserDefaultManager.swift in Sources */,
 				38BC7759296AE09900C7B376 /* PlistManager.swift in Sources */,
 				89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */,
+				89BB0C43296BFD6E00F16177 /* Constants.swift in Sources */,
 				38A37436296A6A1000EB3D6C /* Validation.swift in Sources */,
 				89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */,
 				38BC7755296AC7AC00C7B376 /* HomeViewController.swift in Sources */,

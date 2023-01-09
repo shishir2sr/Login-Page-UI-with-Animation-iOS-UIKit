@@ -25,27 +25,27 @@ class ViewController: UIViewController {
         uiChange()
         userValidation.delegate = self
         
-        lastLoginEmail = UserDefaultManager.read(key: "lastLoginEmail") as? String
+        lastLoginEmail = UserDefaultManager.read(key: Constants.lastLoginKey) as? String
         
         emailTextField.text = lastLoginEmail ?? ""
     }
     
     //prepare for seque
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-            if segue.identifier == "s1"{
-                let vc = segue.destination as! HomeViewController
-                vc.authenticatedUser = (UserDefaultManager.read(key: "lastLoginEmail") as? String)!
-                
-            }
-        }
+//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//            if segue.identifier == "s1"{
+//                let vc = segue.destination as! HomeViewController
+//
+//
+//            }
+//        }
     
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         
         animateLoginButton(sender)
+        UserDefaultManager.add(key: Constants.lastLoginKey, value: emailTextField.text!)
         userValidation.validateEmailandPass(email: self.emailTextField.text!, pass: self.passwordTextField.text!)
-        UserDefaultManager.add(key: "lastLoginEmail", value: emailTextField.text!)
     }
     
     
@@ -155,6 +155,7 @@ extension ViewController: AnimationDelegateForVC{
     }
     
     @objc func gotoHomeScreen() {
+        UserDefaultManager.add(key: Constants.lastLoginKey, value: emailTextField.text!)
         performSegue(withIdentifier: "s1", sender: nil)
     }
     

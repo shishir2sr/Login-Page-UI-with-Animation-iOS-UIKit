@@ -8,7 +8,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        greetingLable.text = "Welcome!\n \(authenticatedUser)"
+       
+        let welcomePerson = UserDefaultManager.read(key: Constants.lastLoginKey)
+        self.navigationItem.prompt = "Welcome, \(welcomePerson!)"
     }
 
 }

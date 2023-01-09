@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YMe-Jx-JDv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YMe-Jx-JDv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -189,7 +188,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="y4t-qW-dUJ">
-                                <rect key="frame" x="20" y="78" width="374" height="104"/>
+                                <rect key="frame" x="20" y="74" width="374" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypu-4l-ila">
                                         <rect key="frame" x="94.5" y="0.0" width="185" height="44"/>
@@ -237,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="2452.1739130434785" y="116.51785714285714"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Contacts-->
         <scene sceneID="cMG-hi-5tY">
             <objects>
                 <viewController id="zbB-St-BlX" customClass="HomeViewController" customModule="Yeasir_30021" customModuleProvider="target" sceneMemberID="viewController">
@@ -246,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKh-RL-lis">
-                                <rect key="frame" x="20" y="112" width="374" height="24"/>
+                                <rect key="frame" x="20" y="108" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -260,7 +259,7 @@
                             <constraint firstItem="kKh-RL-lis" firstAttribute="centerX" secondItem="mF0-oZ-TY9" secondAttribute="centerX" id="bkO-wR-CWw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Wjb-gX-UYg"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="Wjb-gX-UYg"/>
                     <connections>
                         <outlet property="greetingLable" destination="kKh-RL-lis" id="9H0-8C-f9a"/>
                     </connections>
@@ -298,7 +297,7 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xLV-4l-TlF">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -313,11 +312,11 @@
     </scenes>
     <resources>
         <image name="beautiful_house" width="1600" height="1280"/>
-        <image name="gear" catalog="system" width="128" height="122"/>
-        <image name="gear.circle" catalog="system" width="128" height="123"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="gear.circle" catalog="system" width="128" height="121"/>
         <image name="snowfalling" width="1200" height="1200"/>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
