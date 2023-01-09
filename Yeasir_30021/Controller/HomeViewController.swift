@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     @objc func logoutButtonPressed(){
         UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: false)
         self.navigationController?.popViewController(animated: true)
-        print(UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool)
+        print("Logged out: \( UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool)")
         
     }
 }

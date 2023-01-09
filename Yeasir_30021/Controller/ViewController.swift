@@ -26,11 +26,10 @@ class ViewController: UIViewController {
         userValidation.delegate = self
         
         lastLoginEmail = UserDefaultManager.read(key: Constants.lastLoginKey) as? String
-        
         emailTextField.text = lastLoginEmail ?? ""
         
-       var authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
-       authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login")
+    let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool
+       authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login or sign up")
     }
     
     //prepare for seque
