@@ -50,6 +50,64 @@ class HomeViewController: UIViewController {
     }
     
     
+    
+}
+
+
+// MARK: Tableview delegate
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        allNotes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = allNotes[indexPath.row].title
+        cell.detailTextLabel?.text = allNotes[indexPath.row].note
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {[self] _,_,_ in
+            
+            CoreDataManager.shared.deleteNote2(email: self.authenticatedUser, index: indexPath.row)
+            
+            self.allNotes = CoreDataManager.shared.getAllNotes(email: self.authenticatedUser)
+            self.tablveView.reloadData()
+        }
+        
+        let swipeAction = UISwipeActionsConfiguration(actions: [deleteAction])
+        return swipeAction
+    }
+    
+}
+
+
+// MARK: View did load
+extension HomeViewController{
+    fileprivate func authenticationFunction() {
+        UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: true)
+        
+        authenticatedUser = UserDefaultManager.read(key: Constants.lastLoginKey) as! String
+        
+        print("authenticated user: \(authenticatedUser)")
+        self.navigationItem.prompt = "Signed in as \(authenticatedUser)"
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
+        let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
+        if authStatus!{
+            self.tabBarController?.tabBar.alpha = 0
+            self.tabBarController?.tabBar.isUserInteractionEnabled = false
+        }
+    }
+    
+    
+}
+
+// MARK: ALert Controller
+
+extension HomeViewController{
     func showAlert(_ sender: Any) {
             let alertController = UIAlertController(title: "Enter Title and Description", message: "Please enter a title and a description", preferredStyle: .alert)
 
@@ -87,41 +145,4 @@ class HomeViewController: UIViewController {
             // Show the alert controller
             present(alertController, animated: true, completion: nil)
         }
-    
-}
-
-
-// MARK: Tableview delegate
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        allNotes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = allNotes[indexPath.row].title
-        cell.detailTextLabel?.text = allNotes[indexPath.row].note
-        return cell
-    }
-    
-}
-
-
-// MARK: View did load
-extension HomeViewController{
-    fileprivate func authenticationFunction() {
-        UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: true)
-        
-        authenticatedUser = UserDefaultManager.read(key: Constants.lastLoginKey) as! String
-        
-        print("authenticated user: \(authenticatedUser)")
-        self.navigationItem.prompt = "Signed in as \(authenticatedUser)"
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
-        let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
-        if authStatus!{
-            self.tabBarController?.tabBar.alpha = 0
-            self.tabBarController?.tabBar.isUserInteractionEnabled = false
-        }
-    }
 }

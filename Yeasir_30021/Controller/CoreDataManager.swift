@@ -67,8 +67,42 @@ class CoreDataManager{
 
         }
     
+//    MARK: Delete data
+    func deleteNote(title: String, email: String) {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+            fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+            do {
+                let user = try context.fetch(fetchRequest).first as! Person
+                
+                let notes = user.notes?.allObjects as! [Note]
+                
+                for note in notes {
+                    if note.title == title {
+                        context.delete(note)
+                        try context.save()
+                    }
+                }
+                
+            } catch {
+                print("Error saving context \(error)")
+            }
+        }
     
-    
+    func deleteNote2(email: String, index: Int) {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+            fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+            do {
+                let user = try context.fetch(fetchRequest).first as! Person
+                
+                let notes = user.notes?.allObjects as! [Note]
+                
+                context.delete(notes[index])
+                try context.save()
+                
+            } catch {
+                print("Error saving context \(error)")
+            }
+        }
 }
 
 
