@@ -2,15 +2,10 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
     var titleText: String?
-    
     var descriptionText: String?
-    
     var allNotes: [Note]!
-    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var authenticatedUser = ""
     
     @IBOutlet weak var tablveView: UITableView!
@@ -21,6 +16,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         authenticationFunction()
+        
         
         tablveView.delegate = self
         tablveView.dataSource = self
@@ -71,7 +67,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {[self] _,_,_ in
             
-            CoreDataManager.shared.deleteNote2(email: self.authenticatedUser, index: indexPath.row)
+            CoreDataManager.shared.deleteNote(index: indexPath.row, email: self.authenticatedUser)
             
             self.allNotes = CoreDataManager.shared.getAllNotes(email: self.authenticatedUser)
             self.tablveView.reloadData()
@@ -96,10 +92,16 @@ extension HomeViewController{
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonPressed))
         let authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
+        
         if authStatus!{
             self.tabBarController?.tabBar.alpha = 0
             self.tabBarController?.tabBar.isUserInteractionEnabled = false
         }
+        
+        PlistManager.writeToPlist(data: [authenticatedUser: "\(Date.now.formatted())"])
+        let data = PlistManager.readFromPlist()
+        print(data)
+        
     }
     
     

@@ -18,6 +18,7 @@
 		89683417296D10EF00FE602B /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683413296D10EF00FE602B /* Note+CoreDataClass.swift */; };
 		89683418296D10EF00FE602B /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683414296D10EF00FE602B /* Note+CoreDataProperties.swift */; };
 		89683440296D266000FE602B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8968343F296D266000FE602B /* CoreDataManager.swift */; };
+		89683442296D6E1900FE602B /* myplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89683441296D6E1900FE602B /* myplist.plist */; };
 		89BB0C43296BFD6E00F16177 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB0C42296BFD6E00F16177 /* Constants.swift */; };
 		89BB0C46296C101C00F16177 /* TestCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89BB0C44296C101C00F16177 /* TestCoreData.xcdatamodeld */; };
 		89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F62963C705009DDE86 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		89683413296D10EF00FE602B /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		89683414296D10EF00FE602B /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8968343F296D266000FE602B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		89683441296D6E1900FE602B /* myplist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = myplist.plist; sourceTree = "<group>"; };
 		89BB0C42296BFD6E00F16177 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89BB0C45296C101C00F16177 /* TestCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestCoreData.xcdatamodel; sourceTree = "<group>"; };
 		89E6E3F32963C705009DDE86 /* Yeasir_30021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeasir_30021.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +127,7 @@
 		89E6E3F52963C705009DDE86 /* Yeasir_30021 */ = {
 			isa = PBXGroup;
 			children = (
+				89683441296D6E1900FE602B /* myplist.plist */,
 				89BB0C41296BFD5D00F16177 /* Constants */,
 				38A37431296A68AA00EB3D6C /* Model */,
 				38A37433296A68D500EB3D6C /* View */,
@@ -197,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6E4032963C706009DDE86 /* LaunchScreen.storyboard in Resources */,
+				89683442296D6E1900FE602B /* myplist.plist in Resources */,
 				89E6E4002963C706009DDE86 /* Assets.xcassets in Resources */,
 				89E6E3FE2963C705009DDE86 /* Main.storyboard in Resources */,
 			);
