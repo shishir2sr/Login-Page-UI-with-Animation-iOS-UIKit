@@ -13,6 +13,11 @@
 		38BC7755296AC7AC00C7B376 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7754296AC7AC00C7B376 /* HomeViewController.swift */; };
 		38BC7757296ADA0B00C7B376 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7756296ADA0B00C7B376 /* UserDefaultManager.swift */; };
 		38BC7759296AE09900C7B376 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BC7758296AE09900C7B376 /* PlistManager.swift */; };
+		89683415296D10EF00FE602B /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683411296D10EF00FE602B /* Person+CoreDataClass.swift */; };
+		89683416296D10EF00FE602B /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683412296D10EF00FE602B /* Person+CoreDataProperties.swift */; };
+		89683417296D10EF00FE602B /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683413296D10EF00FE602B /* Note+CoreDataClass.swift */; };
+		89683418296D10EF00FE602B /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89683414296D10EF00FE602B /* Note+CoreDataProperties.swift */; };
+		89683440296D266000FE602B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8968343F296D266000FE602B /* CoreDataManager.swift */; };
 		89BB0C43296BFD6E00F16177 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BB0C42296BFD6E00F16177 /* Constants.swift */; };
 		89BB0C46296C101C00F16177 /* TestCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89BB0C44296C101C00F16177 /* TestCoreData.xcdatamodeld */; };
 		89E6E3F72963C705009DDE86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6E3F62963C705009DDE86 /* AppDelegate.swift */; };
@@ -30,6 +35,11 @@
 		38BC7754296AC7AC00C7B376 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		38BC7756296ADA0B00C7B376 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		38BC7758296AE09900C7B376 /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
+		89683411296D10EF00FE602B /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89683412296D10EF00FE602B /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89683413296D10EF00FE602B /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		89683414296D10EF00FE602B /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8968343F296D266000FE602B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		89BB0C42296BFD6E00F16177 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		89BB0C45296C101C00F16177 /* TestCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestCoreData.xcdatamodel; sourceTree = "<group>"; };
 		89E6E3F32963C705009DDE86 /* Yeasir_30021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yeasir_30021.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +66,10 @@
 		38A37431296A68AA00EB3D6C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89683411296D10EF00FE602B /* Person+CoreDataClass.swift */,
+				89683412296D10EF00FE602B /* Person+CoreDataProperties.swift */,
+				89683413296D10EF00FE602B /* Note+CoreDataClass.swift */,
+				89683414296D10EF00FE602B /* Note+CoreDataProperties.swift */,
 				89BB0C44296C101C00F16177 /* TestCoreData.xcdatamodeld */,
 			);
 			path = Model;
@@ -79,6 +93,7 @@
 				3847A381296AAD9E006999A1 /* KeychainManager.swift */,
 				38BC7756296ADA0B00C7B376 /* UserDefaultManager.swift */,
 				38BC7758296AE09900C7B376 /* PlistManager.swift */,
+				8968343F296D266000FE602B /* CoreDataManager.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E6E3FB2963C705009DDE86 /* ViewController.swift in Sources */,
+				89683417296D10EF00FE602B /* Note+CoreDataClass.swift in Sources */,
 				3847A382296AAD9E006999A1 /* KeychainManager.swift in Sources */,
 				38BC7757296ADA0B00C7B376 /* UserDefaultManager.swift in Sources */,
 				38BC7759296AE09900C7B376 /* PlistManager.swift in Sources */,
@@ -202,9 +218,13 @@
 				89BB0C43296BFD6E00F16177 /* Constants.swift in Sources */,
 				38A37436296A6A1000EB3D6C /* Validation.swift in Sources */,
 				89E6E3F92963C705009DDE86 /* SceneDelegate.swift in Sources */,
+				89683415296D10EF00FE602B /* Person+CoreDataClass.swift in Sources */,
 				89BB0C46296C101C00F16177 /* TestCoreData.xcdatamodeld in Sources */,
+				89683416296D10EF00FE602B /* Person+CoreDataProperties.swift in Sources */,
 				38BC7755296AC7AC00C7B376 /* HomeViewController.swift in Sources */,
 				3847A380296A9060006999A1 /* SignUpViewController.swift in Sources */,
+				89683440296D266000FE602B /* CoreDataManager.swift in Sources */,
+				89683418296D10EF00FE602B /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +371,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YXX3K8V779;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Yeasir_30021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -378,6 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YXX3K8V779;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Yeasir_30021/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

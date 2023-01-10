@@ -5,7 +5,6 @@ struct UserDefaultManager{
     // MARK:  Add
     static func add(key: String, value: Any) {
             UserDefaults.standard.set(value, forKey: key)
-        
     }
 
     // MARK:  Read

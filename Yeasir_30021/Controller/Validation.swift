@@ -38,7 +38,13 @@ struct UserValidation{
         
         keychainManager.writeToKeychain(email: email , password: pass)
         
+        CoreDataManager.shared.addUser(email: email, completion: { person in
+            print(person.email!)
+            
+        })
     }
+    
+    
     
     
     func isValidEmail(email: String) -> Bool {

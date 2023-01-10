@@ -15,7 +15,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         uiUpdate()
         userValidation.delegate = self
-    
     }
 
 
