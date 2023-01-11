@@ -24,11 +24,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         uiChange()
         userValidation.delegate = self
-        
         lastLoginEmail = UserDefaultManager.read(key: Constants.lastLoginKey) as? String
         emailTextField.text = lastLoginEmail ?? ""
-        
         authStatus = UserDefaultManager.read(key: Constants.authenTicationStatusKey) as? Bool
+        
         
         if let authStatus = authStatus{
             authStatus  ? gotoHomeScreen() : print("User not authenticated, Please login or sign up")
@@ -39,17 +38,7 @@ class ViewController: UIViewController {
        
     }
     
-    
-    //prepare for seque
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//            if segue.identifier == "s1"{
-//                let vc = segue.destination as! HomeViewController
-//
-//
-//            }
-//        }
-    
+
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         

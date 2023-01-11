@@ -2,51 +2,41 @@
 import Foundation
 struct PlistManager{
     
-  
-    
-    static func readFromPlist() -> (String?) {
-        let plistPath = Bundle.main.path(forResource: "myplist", ofType: "plist")
-        let data = NSDictionary(contentsOfFile: plistPath!)
-        let log = data?["log"] as? String
-        print(log)
-        return (log)
-    }
-    
-    
-
-    static func writeToPlist(data: [String: Any], filepath: String = "myplist.plist") {
-        let plistPath =  Bundle.main.path(forResource: "myplist", ofType: "plist")
-        guard let plistPath = plistPath else {return}
-        let fileUrl = URL(fileURLWithPath: plistPath)
+    // MARK: Write to plist
+    static func writeToPlist(data: [String: Any]) {
+        // creating the URL for the plist file
         
+        guard let resourceDirPath = Bundle.main.resourcePath else { return }
+        print(resourceDirPath)
+        let plistPath = resourceDirPath.appending("/myplist.plist")
+        let filePath = URL(fileURLWithPath: plistPath)
+        print("Plist filepath: \(filePath)")
         
         do {
-            let plistData = try PropertyListSerialization.data(fromPropertyList: data, format: .xml, options: 0)
-            try plistData.write(to: fileUrl)
-            print("Data written to \(filepath)")
+            let data = try PropertyListSerialization.data(fromPropertyList: data, format: .xml, options: 0)
+            try data.write(to: filePath)
+            print("plist data added")
         } catch {
-            print("Error writing plist: \(error)")
+            print(error)
         }
+        
     }
     
-    func readFromPlist(filepath: String = "myplist.plist") -> [String: Any]? {
-        let plistPath =  Bundle.main.path(forResource: "myplist", ofType: "plist")
-        guard let plistPath = plistPath else {return nil}
+    
+    // MARK:  Read from Plist
+    static func readFromPlist() -> [String : Any]? {
         
-        let fileUrl = URL(fileURLWithPath: plistPath)
+        guard let resourceDirPath = Bundle.main.resourcePath else {return nil}
+        print(resourceDirPath)
+        let plistPath = resourceDirPath.appending("/myplist.plist")
+        let filePath = URL(fileURLWithPath: plistPath)
         
-        do {
-            let plistData = try Data(contentsOf: fileUrl)
-            let data = try PropertyListSerialization.propertyList(from: plistData, options: .mutableContainersAndLeaves, format: nil) as! [String: Any]
-            print("Data read from \(filepath): \(data)")
-            return data
-        } catch {
-            print("Error reading plist: \(error)")
-            return nil
-        }
+        guard let data = try? Data(contentsOf: filePath) else { return nil }
+        
+        guard var plist = try? PropertyListSerialization.propertyList(from: data, options: .mutableContainersAndLeaves, format: nil) as? [String : Any] else { return nil }
+        
+        return plist
     }
-
-
 
 
     

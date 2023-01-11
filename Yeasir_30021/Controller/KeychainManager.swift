@@ -25,7 +25,6 @@ struct KeychainManager{
     }
     
     // MARK: Read
-    
     func readDataFromKeyChain(account: String, providedPass: String) -> Bool {
         let query = [
             kSecClass : kSecClassGenericPassword,
@@ -51,13 +50,11 @@ struct KeychainManager{
     //MARK: Update keychain
     func updateKeychain(email: String, password: String) {
         let encodedPassword = try? JSONEncoder().encode(password)
-        
         let query = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: email,
             kSecAttrService: "password"
         ] as CFDictionary
-        
         let attributes = [
             kSecValueData: encodedPassword!,
             kSecAttrAccessible: kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly

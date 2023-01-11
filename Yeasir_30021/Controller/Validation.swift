@@ -17,27 +17,22 @@ struct UserValidation{
     let keychainManager = KeychainManager()
     
     
-    
+    // MARK: Validation for sign in
     func validateEmailandPass(email: String, pass: String){
-        
         isValidEmail(email: email) ?
         delegate?.changeEmailColor() : delegate?.shakeEmail()
-
         isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
-        
         keychainManager.readDataFromKeyChain(account: email, providedPass: pass) ? delegate?.gotoHomeScreen!() : delegate?.shakePass()
         
     }
     
+    // MARK: Validation for sign up
     func validateEmailandPass2(email: String, pass: String){
         
         isValidEmail(email: email) ?
         delegate?.changeEmailColor() : delegate?.shakeEmail()
-
         isValidPassword(password: pass) ? delegate?.changePassColor() : delegate?.shakePass()
-        
         keychainManager.writeToKeychain(email: email , password: pass)
-        
         CoreDataManager.shared.addUser(email: email, completion: { person in
             print(person.email!)
             
@@ -46,7 +41,7 @@ struct UserValidation{
     
     
     
-    
+    // MARK: Regular expressions
     func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)

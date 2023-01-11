@@ -17,14 +17,12 @@ class HomeViewController: UIViewController {
         
         authenticationFunction()
         
-        
         tablveView.delegate = self
         tablveView.dataSource = self
-        
         allNotes = CoreDataManager.shared.getAllNotes(email: authenticatedUser)
         
-        print(allNotes.count)
-      print(authenticatedUser)
+    print(allNotes.count)
+    print(authenticatedUser)
     }
     
     
@@ -32,9 +30,7 @@ class HomeViewController: UIViewController {
         UserDefaultManager.add(key: Constants.authenTicationStatusKey, value: false)
         self.tabBarController?.tabBar.alpha = 1
         self.tabBarController?.tabBar.isUserInteractionEnabled = true
-        
         self.navigationController?.popViewController(animated: true)
-        
         print("Logged out: \( UserDefaultManager.read(key: Constants.authenTicationStatusKey) as! Bool)")
         
     }
@@ -42,7 +38,6 @@ class HomeViewController: UIViewController {
     
     @IBAction func addNoteButtonPressed(_ sender: UIButton) {
         showAlert(sender)
-        
     }
     
     
@@ -98,9 +93,6 @@ extension HomeViewController{
             self.tabBarController?.tabBar.isUserInteractionEnabled = false
         }
         
-        PlistManager.writeToPlist(data: [authenticatedUser: "\(Date.now.formatted())"])
-        let data = PlistManager.readFromPlist()
-        print(data)
         
     }
     
@@ -138,6 +130,10 @@ extension HomeViewController{
                     
                     self.allNotes = CoreDataManager.shared.getAllNotes(email: self.authenticatedUser)
                     self.tablveView.reloadData()
+                    
+                    PlistManager.writeToPlist(data: [self.authenticatedUser:"\(self.titleText!)"])
+                    let noteLog = PlistManager.readFromPlist()
+                    self.navigationItem.prompt = "New note added titled:  \(String(describing: noteLog![self.authenticatedUser]!))"
                     
                 })
                 
